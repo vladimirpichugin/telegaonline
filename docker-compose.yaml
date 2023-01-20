@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  telegaonline:
+    build:
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./docker-data/logs:/usr/src/app/logs
+      - ./docker-data/main.session:/usr/src/app/main.session
