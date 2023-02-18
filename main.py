@@ -20,18 +20,14 @@ client = TelegramClient('main', int(args.api_id), args.api_hash, receive_updates
 
 
 async def update_status(offline):
-    await client(
-        functions.account.UpdateStatusRequest(
-            offline=offline
-        )
-    )
+    await client(functions.account.UpdateStatusRequest(offline=offline))
 
     if offline:
         t = randint(4, 60 * 3)
     else:
         t = randint(9, 34)
 
-    print((f'Offline' if offline else f'Online') + f' {t} seconds..')
+    print(('Offline' if offline else 'Online') + f' {t} seconds..')
 
     await asyncio.sleep(t)
 
