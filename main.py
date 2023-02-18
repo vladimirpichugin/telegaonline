@@ -1,5 +1,6 @@
 import argparse
 import asyncio
+from random import randint
 from telethon import TelegramClient
 from telethon import functions
 
@@ -22,7 +23,11 @@ async def main():
             if client.is_connected():
                 await client(functions.account.UpdateStatusRequest(offline=False))
 
-        await asyncio.sleep(5)
+        t = randint(5, 180)
+
+        print(f'Sleep {t} seconds..')
+
+        await asyncio.sleep(t)
 
 
 def stop():
